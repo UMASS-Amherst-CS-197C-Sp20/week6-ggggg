@@ -1,7 +1,8 @@
+
 #include "city.h"
 #include <stdio.h>
 #include <string.h>
-
+#define CITY_C 0
 // Read from a file into an array a string that ends with a comma.
 // This is "static" because it is private.
 static int read_until_comma(FILE* input, char* dest, int N) {
@@ -73,3 +74,15 @@ double compute_average(city* ptrs[NUM_CITIES], int (*callback)(const city*)) {
 }
 
 //TODO: implement get_city_population
+int get_city_population(const city* x) {
+	city* cityList[NUM_CITIES];
+	load_cities(cityList);
+	for(int cityInd = 0; cityInd < NUM_CITIES; cityInd++) {
+		printf("%d\n", cityInd);
+		city* currentCity = cityList[cityInd];
+		if(currentCity->population == x->population)
+			return(currentCity->population);
+		// if
+	} // cityInd
+	return(-1);
+} // function get_city_population

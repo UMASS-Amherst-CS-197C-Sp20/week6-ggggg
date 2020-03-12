@@ -1,11 +1,22 @@
+#ifndef CITY_C
 #include "city.h"
+#endif
+
+#ifndef FINDCITY_C
+#include "findcity.c"
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
 void print_cities(city *ptrs[NUM_CITIES], int N) {
   // TODO
-}
+	for(int cityInd = 0; cityInd < NUM_CITIES; cityInd++) {
+		city *currentCity = ptrs[cityInd];
+		printf("City %s, population %d\n", currentCity->name, currentCity->population);
+	} //  cityInd
+} // print_cities method
 
 int main(int argc, char * argv[]) {
   city cities[NUM_CITIES] = {0};
@@ -32,7 +43,7 @@ int main(int argc, char * argv[]) {
 
   printf("Average City Name Length: %1.2f\n", compute_average(ptrs, get_city_string_length));
   // TODO implement and uncomment out this:
-  //printf("Average Population: %1.2f\n", compute_average(ptrs, get_city_population));
+ // printf("Average Population: %1.2f\n", compute_average(ptrs, get_city_population));
 
   if(argc>1){
     char buffer[50];
@@ -47,6 +58,7 @@ int main(int argc, char * argv[]) {
         return 1;
       }
       //TODO you code here
+	findCity(buffer);
     }
   }
 

@@ -4,7 +4,7 @@ CFLAGS:=-Wall -std=c99
 
 # on the left is the name of the program.
 # on the right are the input files it depends on.
-week6: main.c city.c
+week6: main.c city.c findcity.c
 	$(CC) $(CFLAGS) $^ -o $@
 
 .PHONY: run
